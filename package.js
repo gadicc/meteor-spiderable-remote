@@ -8,5 +8,8 @@ Npm.depends({
 
 // even though we're serving minified, dynamic loading would be nice
 Package.on_use(function (api) {
-	api.add_files('spiderable-remote.js', 'server');
+	api.use(['templating'], 'client');
+
+	api.add_files('spiderable.html', 'client');
+  	api.add_files('spiderable-remote.js', 'server');
 });
