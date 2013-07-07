@@ -3,7 +3,7 @@ Package.describe({
 });
 
 Npm.depends({
-	'phantomjs-remote': '0.0.7'
+	'phantomjs-remote': '0.0.8'
 });
 
 // even though we're serving minified, dynamic loading would be nice
