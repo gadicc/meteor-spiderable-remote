@@ -60,7 +60,7 @@ app.use(function (req, res, next) {
           Meteor._debug('spiderable: ' + error);
           next();
         }
-    }, { 'load-images': 'no' }, 'localhost', '8000');
+    }, { 'load-images': 'no' });
 
   } else {
     next();
