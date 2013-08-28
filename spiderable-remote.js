@@ -2,7 +2,8 @@ var fs = Npm.require('fs');
 var phantomjs_remote = Npm.require('phantomjs-remote');
 var querystring = Npm.require('querystring');
 var urlParser = Npm.require('url');
-var app = __meteor_bootstrap__.app;
+// 0.6.4 and below support until 2014
+var app = typeof WebApp != 'undefined' ? WebApp.connectHandlers : __meteor_bootstrap__.app;
 
 Spiderable = {};
 

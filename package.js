@@ -6,10 +6,21 @@ Npm.depends({
 	'phantomjs-remote': '0.0.8'
 });
 
-// even though we're serving minified, dynamic loading would be nice
 Package.on_use(function (api) {
+	// 0.6.4 and below support until 2014
+	try {
+	    api.use('webapp', 'server');
+	}
+	catch (error) {
+	    if (error.code != 'ENOENT')
+	        throw(error);
+	}	
+
 	api.use(['templating'], 'client');
 
 	api.add_files('spiderable.html', 'client');
   	api.add_files('spiderable-remote.js', 'server');
+
+  	if (api.export)
+  		api.export('Spiderable', 'server');
 });
