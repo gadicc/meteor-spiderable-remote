@@ -17,10 +17,11 @@ Package.on_use(function (api) {
 	}	
 
 	api.use(['templating'], 'client');
-
-	api.add_files('spiderable.html', 'client');
-  	api.add_files('spiderable-remote.js', 'server');
+	api.use(['underscore'], ['client', 'server']);
 
   	if (api.export)
   		api.export('Spiderable', 'server');
+
+	api.add_files('spiderable.html', 'client');
+  	api.add_files('spiderable-remote.js', 'server');
 });
