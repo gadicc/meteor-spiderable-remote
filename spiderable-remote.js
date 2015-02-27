@@ -53,7 +53,12 @@ app.use(function (req, res, next) {
 
     phantomjs_remote.send(phantomScript, function(error, result) {
         if (!error) {
-          res.writeHead(200, {'Content-Type': 'text/html; charset=UTF-8'});
+		  try {
+	          res.writeHead(200, {'Content-Type': 'text/html; charset=UTF-8'});
+		  } catch (err) {
+			  console.log("Caught", err);
+			  console.log(req.url);
+		  }
           res.end(result);
         } else {
           // phantomjs failed. Don't send the error, instead send the
